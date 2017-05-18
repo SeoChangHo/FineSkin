@@ -5,10 +5,26 @@
 	<title>피부날씨</title>
 </head>
 <body>
-    <div data-role="page">
+		<div data-role="panel" id="pnlMenu" data-display="overlay">
+   			<img src="./img/FineInsightLogo2.jpg" width="100%">
+   			<br/>
+   			<a href="#" data-role="button">로그인</a>
+   			<hr/>
+   			
+   			<ul data-inset="true" data-role="listview" id="pnlList" >
+   				<li><a href="frmSkinWeather.html">오늘의 피부 날씨</a></li>
+   				<li><a href="frmSkinInfomation.html">피부 정보</a></li>
+   				<li><a href="frmSkinfavorite.html">즐겨찾기</a></li>
+   				<li><a href="http://blog.naver.com/qkrina/221007715663">1:1 문의하기</a></li>
+   				<li><a href="https://play.google.com/store/apps/details?id=com.google.android.googlequicksearchbox">앱 평가하기</a></li>
+   			</ul>
+   		</div>
+    
+    
 		<div data-role="header" class="ui-alt-icon ui-nodisc-icon">
 			<div>
-			<button class="ui-btn ui-icon-grid ui-shadow ui-corner-all ui-btn-icon-notext ui-btn-inline"></button>
+			<a href = "#pnlMenu" class="ui-btn ui-icon-grid ui-shadow ui-corner-all ui-btn-icon-notext ui-btn-inline"></a>
+			
 			<button class="ui-btn ui-icon-search ui-shadow ui-corner-all ui-btn-icon-notext ui-btn-inline"></button>
 			</div>
 			<div data-role="navbar" data-iconpos="top">
@@ -19,17 +35,13 @@
 				</ul>
 			</div>
 		</div>
+   
+    
 		
 		<div role="main" >
-			<div>이거 나와야아하잠;아ㅐ럼;니ㅏㅓㅇㄹ;미낭 ㄻ이나</div>
-        
+			<div>피부날씨</div>
+	       
 		</div>
-		
-		
-		<div data-role="footer" data-position="fixed">
-		</div>
-		
-	</div>
 	
 </body>
 </html>
