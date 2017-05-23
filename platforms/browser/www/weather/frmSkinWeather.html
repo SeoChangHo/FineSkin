@@ -12,6 +12,26 @@
 
 	<title>피부날씨</title>
 	
+	<!-- owl.carousel -->
+	<link rel="stylesheet" href="../css/owl.carousel.css">
+	<link rel="stylesheet" href="../css/owl.theme.css">
+ 	<script src="../js/owl.carousel.js"></script>
+ 	
+	<script>
+		$(document).ready(function() {
+		 
+			  $("#owl-demo").owlCarousel({
+			 
+			      autoPlay: 100000, //Set AutoPlay to 3 seconds
+			 
+			      items : 1,
+			      itemsDesktop : [1199,3],
+			      itemsDesktopSmall : [979,3]
+			 
+			  });
+			 
+		});
+	</script>
 	
 </head>
 
@@ -50,8 +70,14 @@
     
 		
 		<div role="main"  class="whiteboard">
-			
+			<div id="owl-demo" class="owl-carousel owl-theme">
+          
+			  <div class="item"><img src="../img/FineInsightLogo.png" alt="Owl Image"></div>
+			  <div class="item"><img src="../img/FineInsightLogo2.jpg" alt="Owl Image"></div>
+			  <div class="item"><img src="../img/logo.png" alt="Owl Image"></div>
+			</div>
 		</div>
+	
 	
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar" data-iconpos="top">
@@ -61,7 +87,7 @@
 					<li><a href="../favorite/frmSkinFavorite.html" >즐겨찾기</a></li>
 				</ul>
 			</div>
-		</div>
+		</div>		
 		
 	
 </body>

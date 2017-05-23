@@ -123,3 +123,12 @@ h1 {
 #search{
 	margin-left: 70%;
 }
+
+#owl-demo .item{
+  margin: 3px;
+}
+#owl-demo .item img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
