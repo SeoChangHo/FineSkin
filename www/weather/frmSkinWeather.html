@@ -11,9 +11,7 @@
 	<link rel="stylesheet" href="../css/index.css"/>
 
 	<title>피부날씨</title>
-	<script src="http://openlayers.org/api/OpenLayers.js"></script>
-	<script src="http://openweathermap.org/js/OWM.OpenLayers.1.3.4.js" ></script>
-
+	
 	
 </head>
 
@@ -47,21 +45,23 @@
 			<a id="topmenu" href = "#pnlMenu" class="ui-btn ui-icon-grid ui-shadow ui-corner-all ui-btn-icon-notext ui-btn-inline"></a>
 			<a id="search" href="#" class="ui-btn ui-icon-search ui-shadow ui-corner-all ui-btn-icon-notext ui-btn-inline"></a>
 			</div>
-			<div data-role="navbar" data-iconpos="top">
-				<ul>
-					<li><a id="weather" href="../weather/frmSkinWeather.html" >피부날씨</a></li>  <!--  class="ui-btn-active" -->
-					<li><a href="../information/frmSkinInformation.html" >피부정보</a></li>
-					<li><a href="../favorite/frmSkinFavorite.html" >즐겨찾기</a></li>
-				</ul>
-			</div>
 		</div>
    
     
 		
 		<div role="main"  class="whiteboard">
-			<img src="../sample/sample.png" width="100%">
+			
 		</div>
 	
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar" data-iconpos="top">
+				<ul>
+					<li><a id="weather" href="weather/frmSkinWeather.html" >피부날씨</a></li>  <!--  class="ui-btn-active" -->
+					<li><a href="information/frmSkinInformation.html" >피부정보</a></li>
+					<li><a href="favorite/frmSkinFavorite.html" >즐겨찾기</a></li>
+				</ul>
+			</div>
+		</div>
 		
 	
 </body>
