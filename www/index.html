@@ -25,7 +25,7 @@
 		<div data-role="panel" id="pnlMenu" data-display="overlay">
    			<img src="./img/FineInsightLogo2.jpg" width="100%">
    			<br/>
-   			<a href="#" data-role="button">로그인</a>
+   			<a href="login/loginmain.html" data-role="button">로그인</a>
    			<hr/>
    			
    			<ul data-inset="true" data-role="listview" id="pnlList" >
@@ -57,8 +57,14 @@
 			  
 			</div>
 		</div>
-	
-
+		
+		<script>
+			function gettingJSON(){
+		 	    $.getJSON("http://api.openweathermap.org/data/2.5/weather?lat=37.5272032&lon=127.154105&APPID=92e7b2df78fb8de10187e0abd8c5a46b",function(json){
+		 	        $("#weather").text(JSON.stringify(json));
+		 	    });
+			}
+		</script>
 
 		
 		<div data-role="footer" data-position="fixed">
@@ -71,15 +77,6 @@
 			</div>
 		</div>
 	</div>
-	
-						<script>
-			function gettingJSON(){
-		 	    $.getJSON("http://api.openweathermap.org/data/2.5/weather?lat=37.5272032&lon=127.154105&APPID=92e7b2df78fb8de10187e0abd8c5a46b",function(json){
-		 	        $("#weather").text(JSON.stringify(json));
-		 	    });
-			}
-		</script>
-	
 
 </body>
 </html>
