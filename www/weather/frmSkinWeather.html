@@ -16,35 +16,14 @@
 	<link rel="stylesheet" href="../css/owl.carousel.css">
 	<link rel="stylesheet" href="../css/owl.theme.css">
  	<script src="../js/owl.carousel.js"></script>
- 	
-	<script>
-		$(document).ready(function() {
-		 
-			  $("#owl-demo").owlCarousel({
-			 
-			      autoPlay: 100000, //Set AutoPlay to 3 seconds
-			 
-			      items : 1,
-			      itemsDesktop : [1199,3],
-			      itemsDesktopSmall : [979,3]
-			 
-			  });
-			 
-		});
-		
-		 function gettingJSON(){
-		        $.getJSON("http://api.openweathermap.org/data/2.5/weather?lat=37.5272032&lon=127.154105&APPID=92e7b2df78fb8de10187e0abd8c5a46b",function(json){
-		            $("#weather").text(JSON.stringify(json));
-		        });
-		    }
-	</script>
+ 	<script type="text/javascript" src="../js/index.js"></script>
 	
 </head>
 
 <style>
 .whiteboard
 {
-	background-color: white;
+	background-color: white; 
 }
 </style>
 
@@ -77,7 +56,6 @@
 		
 		<div role="main"  class="whiteboard">
 			<div id="owl-demo" class="owl-carousel owl-theme">
-          
 			  <div class="item">
 			  		<button id = "getIt" onclick = "gettingJSON()">Get JSON</button>
 			  		<div id="weather"></div>
@@ -98,7 +76,6 @@
 				</ul>
 			</div>
 		</div>		
-		
 	
 </body>
 </html>

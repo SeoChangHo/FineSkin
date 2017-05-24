@@ -1,8 +1,19 @@
 init = function(){
-	location.href = "../weather/frmSkinWeather.html";	
+	
+	 $("#owl-demo").owlCarousel({
+		 
+	      autoPlay: 100000, //Set AutoPlay to 3 seconds
+	 
+	      items : 1,
+	      itemsDesktop : [1199,3],
+	      itemsDesktopSmall : [979,3]
+	 
+	  });
 }
 
-$(document).ready(init);
+$(document).on("pagebeforecreate", init);
+
+
 
 
 
