@@ -60,7 +60,7 @@
    		</div>
    		
     
-		<div data-role="header" class="ui-alt-icon ui-nodisc-icon">
+		<div data-role="header" class="ui-alt-icon ui-nodisc-icon" id="frmHeader">
 			<div>
 			<a id="topmenu" href = "#pnlMenu" class="ui-btn ui-icon-grid ui-shadow ui-corner-all ui-btn-icon-notext ui-btn-inline"></a>
 			<a id="search" href="#" class="ui-btn ui-icon-search ui-shadow ui-corner-all ui-btn-icon-notext ui-btn-inline"></a>
@@ -72,11 +72,23 @@
 		<div role="main"  class="whiteboard">
 			<div id="owl-demo" class="owl-carousel owl-theme">
           
-			  <div class="item"><img src="../img/FineInsightLogo.png" alt="Owl Image"></div>
+			  <div class="item">
+			  		<button id = "getIt" onclick = "gettingJSON()">Get JSON</button>
+			  		<div id="weather"></div>
+			  </div>
 			  <div class="item"><img src="../img/FineInsightLogo2.jpg" alt="Owl Image"></div>
 			  <div class="item"><img src="../img/logo.png" alt="Owl Image"></div>
+			  
 			</div>
 		</div>
+		
+		<script>
+		    function gettingJSON(){
+		        $.getJSON("http://api.openweathermap.org/data/2.5/weather?lat=37.5272032&lon=127.154105&APPID=92e7b2df78fb8de10187e0abd8c5a46b",function(json){
+		            $("#weather").text(JSON.stringify(json));
+		        });
+		    }
+   		 </script>
 	
 	
 		<div data-role="footer" data-position="fixed">
