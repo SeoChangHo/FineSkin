@@ -9,13 +9,16 @@
 	<script src="http://code.jquery.com/jquery.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 	<link rel="stylesheet" href="css/index.css"/>
-    <title>FineSkin</title>
+	
+    <title>피부날씨</title>
     
     <!-- owl.carousel -->
 	<link rel="stylesheet" href="css/owl.carousel.css">
 	<link rel="stylesheet" href="css/owl.theme.css">
  	<script src="js/owl.carousel.js"></script>
  	
+ 	<script type="text/javascript" src="js/index.js"></script>
+ 	 	
 </head>
 <body>
 		<div data-role="panel" id="pnlMenu" data-display="overlay">
@@ -25,7 +28,7 @@
    			<hr/>
    			
    			<ul data-inset="true" data-role="listview" id="pnlList" >
-   				<li><a href="weather/frmSkinWeather.html">오늘의 피부 날씨</a></li>
+   				<li><a href="index.html">오늘의 피부 날씨</a></li>
    				<li><a href="information/frmSkinInformation.html">피부 정보</a></li>
    				<li><a href="favorite/frmSkinFavorite.html">즐겨찾기</a></li>
    				<li><a href="http://blog.naver.com/qkrina/221007715663">블로그</a></li>
@@ -42,21 +45,35 @@
 		</div>
 	
 		
-		<div role="main" >
+		<div role="main"  class="whiteboard">
+			<div id="owl-demo" class="owl-carousel owl-theme">
+			  <div class="item">
+			  		<button id = "getIt" onclick = "gettingJSON()">Get JSON</button>
+			  		<div id="weather"></div>
+			  </div>
+			  <div class="item"><img src="img/FineInsightLogo2.jpg" alt="Owl Image"></div>
+			  <div class="item"><img src="img/logo.png" alt="Owl Image"></div>
+			  
+			</div>
 		</div>
+		
+		<script>
+			function gettingJSON(){
+		 	    $.getJSON("http://api.openweathermap.org/data/2.5/weather?lat=37.5272032&lon=127.154105&APPID=92e7b2df78fb8de10187e0abd8c5a46b",function(json){
+		 	        $("#weather").text(JSON.stringify(json));
+		 	    });
+			}
+		</script>
 		
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar" data-iconpos="top">
 				<ul>
-					<li><a id="weather" href="weather/frmSkinWeather.html" >피부날씨</a></li>  <!--  class="ui-btn-active" -->
+					<li><a id="weather" href="#" >피부날씨</a></li>  <!--  class="ui-btn-active" -->
 					<li><a href="information/frmSkinInformation.html" >피부정보</a></li>
 					<li><a href="favorite/frmSkinFavorite.html" >즐겨찾기</a></li>
 				</ul>
 			</div>
 		</div>
-		
-		<script type="text/javascript" src="cordova.js"></script>
-    	<script type="text/javascript" src="js/index.js"></script>
 		
 </body>
 </html>
