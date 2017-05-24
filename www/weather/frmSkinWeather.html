@@ -31,6 +31,12 @@
 			  });
 			 
 		});
+		
+		 function gettingJSON(){
+		        $.getJSON("http://api.openweathermap.org/data/2.5/weather?lat=37.5272032&lon=127.154105&APPID=92e7b2df78fb8de10187e0abd8c5a46b",function(json){
+		            $("#weather").text(JSON.stringify(json));
+		        });
+		    }
 	</script>
 	
 </head>
@@ -81,14 +87,6 @@
 			  
 			</div>
 		</div>
-		
-		<script>
-		    function gettingJSON(){
-		        $.getJSON("http://api.openweathermap.org/data/2.5/weather?lat=37.5272032&lon=127.154105&APPID=92e7b2df78fb8de10187e0abd8c5a46b",function(json){
-		            $("#weather").text(JSON.stringify(json));
-		        });
-		    }
-   		 </script>
 	
 	
 		<div data-role="footer" data-position="fixed">
