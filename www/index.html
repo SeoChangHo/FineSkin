@@ -51,6 +51,7 @@
          <div id="owl-demo" class="owl-carousel owl-theme">
            <div class="item">
                  <button id = "getIt" >Get JSON</button>
+                 <a href="jMobile13.html">위치정보</a>
                  <div id="weather"></div>
            </div>
            <div class="item"><img src="img/FineInsightLogo2.jpg" alt="Owl Image"></div>
@@ -60,10 +61,12 @@
       </div>
       
       <script type="text/javascript">
+      var lat =37.5272032 ;
+      var lon = 127.154105; 
       var init = function(){
          $("#getIt").click(function(){
             $.ajax({
-               url:"http://api.openweathermap.org/data/2.5/weather?lat=37.5272032&lon=127.154105&APPID=92e7b2df78fb8de10187e0abd8c5a46b",
+               url:"http://api.openweathermap.org/data/2.5/weather?lat=" +lat + "&lon=" + lon +"&APPID=92e7b2df78fb8de10187e0abd8c5a46b",
                type: "get",
                dataType:"json",
                success:function(data){
