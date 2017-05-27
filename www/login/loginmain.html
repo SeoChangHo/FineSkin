@@ -12,6 +12,21 @@
 	
 	<title>Insert title here</title>
 	
+	<script type = "text/javascript">
+	var db = openDatabase('Admin', '1.0', 'Admin', 5*1024*1024);
+	
+	function init()
+	{
+		db.transaction(function (tx)
+				{
+					tx.excuteSql('select *from fine_member', [], function(tx, result)
+							{
+								alert(result.rows.length);
+							});
+				});
+	}
+	
+	</script>
 	
 </head>
 
@@ -30,7 +45,7 @@
 					<input type="text" placeholder="아이디">
 				    <input type="password" placeholder = "비밀번호">
 				    <br/>
-				    <a href="#" data-role="button">로그인</a>
+				    <a href="#" data-role="button" onclick=init();>로그인</a>
 				    <a href="../join/join.html" data-transition="pop">아직 회원이 아니세요?</a>
 				    
 				    
