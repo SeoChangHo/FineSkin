@@ -10,7 +10,7 @@
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 	<link rel="stylesheet" href="css/index.css"/>
 	
-    <title>피부날씨</title>
+    <title>파인스킨</title>
     
     <!-- owl.carousel -->
 	<link rel="stylesheet" href="css/owl.carousel.css">
@@ -30,7 +30,7 @@
    			<hr/>
    			
    			<ul data-inset="true" data-role="listview" id="pnlList" >
-   				<li><a href="index.html">오늘의 피부 날씨</a></li>
+   				<li><a href="weather/frmWeather.html">오늘의 피부 날씨</a></li>
    				<li><a href="category/frmCategory.html">피부 정보</a></li>
    				<li><a href="favorite/frmSkinFavorite.html">즐겨찾기</a></li>
    				<li><a href="http://blog.naver.com/qkrina/221007715663">블로그</a></li>
@@ -48,59 +48,13 @@
 	
 		
    <div role="main"  class="whiteboard">
-         <div id="owl-demo" class="owl-carousel owl-theme">
-           <div class="item">
-                 <button id = "getIt" >Get JSON</button>
-                 
-                 <a href="jMobile13.html">위치정보</a>
-                 
-                 <div id="weather"></div>
-           </div>
-           <div class="item"><img src="img/FineInsightLogo2.jpg" alt="Owl Image"></div>
-           <div class="item"><img src="img/logo.png" alt="Owl Image"></div>
-           
-         </div>
+         
       </div>
-      
-      <script type="text/javascript">
-      var lat =37.5272032 ;
-      var lon = 127.154105; 
-      var init = function(){
-         $("#getIt").click(function(){
-            $.ajax({
-               url:"http://api.openweathermap.org/data/2.5/weather?lat=" +lat + "&lon=" + lon +"&APPID=92e7b2df78fb8de10187e0abd8c5a46b",
-               type: "get",
-               dataType:"json",
-               success:function(data){
-                  $(data).each(function(){
-                     var weather = this.weather[0].main;
-                     var sky = this.weather[0].description;
-                     var temp = this.main.temp - 273.15;
-                     var pressure = this.main.pressure;
-                     var humidity = this.main.humidity;
-                     var clouds = this.clouds.all;
-                     
-                     $("<p>").css({
-                        border:"solid 2px pink",
-                        margin: "5px"
-                     }).html("날씨 : " + weather + " /하늘 : " + sky +  " / 온도 : " + temp + " / 압력 : " + pressure + " / 습도 : " + humidity + " / 구름 : " + clouds  ).appendTo($("#weather"));
-                  });
-               },
-               error: function(xhr, textStatus, errMsg){
-                  $("#weather").html("<p>" + textStatus + "(HTTP-" + xhr.status + " / " + errMsg + ") </p>");
-               }
-            });
-         });
-      }
-      
-      $(document).ready(init);
-      </script>
 
-		
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar" data-iconpos="top">
 				<ul>
-					<li><a id="weather" href="#" >피부날씨</a></li>  <!--  class="ui-btn-active" -->
+					<li><a id="weather" href="weather/frmWeather.html" >피부날씨</a></li>  <!--  class="ui-btn-active" -->
 					<li><a href="category/frmCategory.html" >피부정보</a></li>
 					<li><a href="favorite/frmSkinFavorite.html" >즐겨찾기</a></li>
 				</ul>
