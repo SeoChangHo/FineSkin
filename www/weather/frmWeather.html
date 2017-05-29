@@ -8,19 +8,32 @@
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
 	<script src="http://code.jquery.com/jquery.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-	<link rel="stylesheet" href="css/index.css"/>
+	<link rel="stylesheet" href="../css/index.css"/>
 	
     <title>피부날씨</title>
+   	
     
     <!-- owl.carousel -->
-	<link rel="stylesheet" href="css/owl.carousel.css">
-	<link rel="stylesheet" href="css/owl.theme.css">
- 	<script src="js/owl.carousel.js"></script>
+	<link rel="stylesheet" href="../css/owl.carousel.css">
+	<link rel="stylesheet" href="../css/owl.theme.css">
+ 	<script src="../js/owl.carousel.js"></script>
  	
- 	<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
- 	<script type="text/javascript" src="js/index.js"></script>
- 	 	
 </head>
+	<script type="text/javascript">
+			var init = function(){
+				
+			  	$("#owl-demo").owlCarousel({
+			  			 
+			  		      autoPlay: 100000, //Set AutoPlay to 3 seconds
+			  		 
+			  		      items : 1,
+			  		      itemsDesktop : [1199,3],
+			  		      itemsDesktopSmall : [979,3]
+			  	 });
+			   }
+			
+			  $(document).ready(init);
+	</script>
 <body>
 <div data-role="page">
 		<div data-role="panel" id="pnlMenu" data-display="overlay">
@@ -45,14 +58,13 @@
 			<a id="search" href="#" class="ui-btn ui-icon-search ui-shadow ui-corner-all ui-btn-icon-notext ui-btn-inline"></a>
 			</div>
 		</div>
-	
-		
-   <div role="main"  class="whiteboard">
+
+  	 <div role="main"  class="whiteboard">
          <div id="owl-demo" class="owl-carousel owl-theme">
            <div class="item">
                  <button id = "getIt" >Get JSON</button>
                  
-                 <a href="jMobile13.html">위치정보</a>
+                 <a href="../jMobile13.html">위치정보</a>
                  
                  <div id="weather"></div>
            </div>
@@ -95,8 +107,7 @@
 	      
 	      $(document).ready(init);
       </script>
-
-		
+      		
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar" data-iconpos="top">
 				<ul>
