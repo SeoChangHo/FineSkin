@@ -10,9 +10,8 @@
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 	<link rel="stylesheet" href="../css/index.css"/>
 	
-	<title>Insert title here</title>
-	
-	
+	<title>회원가입</title>
+
 </head>
 
 <body>
@@ -27,24 +26,19 @@
 		<div role="main">
 			<br/>
 			<div class="box">
-				<input type="text" id="id" placeholder="아이디를 입력해주세요.">
-				<input type="text" id="nickname" placeholder="닉네임을 입력해주세요">
-				<input type="password" id="pw" placeholder="비밀번호를 입력해주세요">
-				<input type="password" id="pw2" placeholder="비밀번호 중복체크입니다.">
-				<hr/>
-				<br/>
-				<a href="#" data-role="button">회원가입완료</a>
+				<form name="nextpage" method="post" action="http://fineinsight.kr/Lime/join.jsp">
+					<input type="text" name="id" placeholder="아이디를 입력해주세요.">
+					<input type="text" name="nickname" placeholder="닉네임을 입력해주세요">
+					<input type="password" name="pw" placeholder="비밀번호를 입력해주세요">
+					<input type="password" name="pw2" placeholder="비밀번호 중복체크입니다.">
+					<hr/>
+					<br/>
+					<input type="submit" name="submit" value="회원가입완료">
+				</form>
 				
 			</div>
-			
-			
-				    
+        </div>
 
-
-        	</div>
-        	
-
-		
 		<div data-role="footer" data-position="fixed">
 
 		</div>

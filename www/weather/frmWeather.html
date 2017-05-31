@@ -11,29 +11,8 @@
 	<link rel="stylesheet" href="../css/index.css"/>
 	
     <title>피부날씨</title>
-   	
-    
-    <!-- owl.carousel -->
-	<link rel="stylesheet" href="../css/owl.carousel.css">
-	<link rel="stylesheet" href="../css/owl.theme.css">
- 	<script src="../js/owl.carousel.js"></script>
  	
 </head>
-	<script type="text/javascript">
-			var init = function(){
-				
-			  	$("#owl-demo").owlCarousel({
-			  			 
-			  		      autoPlay: 100000, //Set AutoPlay to 3 seconds
-			  		 
-			  		      items : 1,
-			  		      itemsDesktop : [1199,3],
-			  		      itemsDesktopSmall : [979,3]
-			  	 });
-			   }
-			
-			  $(document).ready(init);
-	</script>
 <body>
 <div data-role="page">
 		<div data-role="panel" id="pnlMenu" data-display="overlay">
@@ -62,7 +41,7 @@
   	 <div role="main"  class="whiteboard">
          <div id="owl-demo" class="owl-carousel owl-theme">
            <div class="item">
-                 <button id = "getIt" >Get JSON</button>
+                 <input type="button" id="getIt"  onclick="weather();" value="Get JSON">
                  
                  <a href="../jMobile13.html">위치정보</a>
                  
@@ -73,41 +52,54 @@
            
          </div>
       </div>
-      
+
+	  <!-- owl.carousel -->
+      <link rel="stylesheet" href="../css/owl.carousel.css">
+      <link rel="stylesheet" href="../css/owl.theme.css">
+ 	  <script src="../js/owl.carousel.js"></script>
       <script type="text/javascript">
-	      var lat =37.5272032 ;
-	      var lon = 127.154105; 
-	      var init = function(){
-	         $("#getIt").click(function(){
-	            $.ajax({
-	               url:"http://api.openweathermap.org/data/2.5/weather?lat=" +lat + "&lon=" + lon +"&APPID=92e7b2df78fb8de10187e0abd8c5a46b",
-	               type: "get",
-	               dataType:"json",
-	               success:function(data){
-	                  $(data).each(function(){
-	                     var weather = this.weather[0].main;
-	                     var sky = this.weather[0].description;
-	                     var temp = this.main.temp - 273.15;
-	                     var pressure = this.main.pressure;
-	                     var humidity = this.main.humidity;
-	                     var clouds = this.clouds.all;
-	                     	
-	                     $("<p>").css({
-	                        border:"solid 2px pink",
-	                        margin: "5px"
-	                     }).html("날씨 : " + weather + " /하늘 : " + sky +  " / 온도 : " + temp + " / 압력 : " + pressure + " / 습도 : " + humidity + " / 구름 : " + clouds  ).appendTo($("#weather"));
-	                  });
-	               },
-	               error: function(xhr, textStatus, errMsg){
-	                  $("#weather").html("<p>" + textStatus + "(HTTP-" + xhr.status + " / " + errMsg + ") </p>");
-	               }
-	            });
-	         });
+     	 var lat =37.5272032 ;
+   	 	 var lon = 127.154105; 	
+	     var init = function(){
+	         $("#owl-demo").owlCarousel({
+	  			 
+	  		      autoPlay: 100000, //Set AutoPlay to 3 seconds
+	  		 
+	  		      items : 1,
+	  		      itemsDesktop : [1199,3],
+	  		      itemsDesktopSmall : [979,3]
+	  	 	});
 	      }
-	      
+	     
 	      $(document).ready(init);
+	      
+	      function weather(){
+	          $.ajax({
+	             url:"http://api.openweathermap.org/data/2.5/weather?lat=" +lat + "&lon=" + lon +"&APPID=92e7b2df78fb8de10187e0abd8c5a46b",
+	             type: "get",
+	             dataType:"json",
+	             success:function(data){
+	                $(data).each(function(){
+	                   var weather = this.weather[0].main;
+	                   var sky = this.weather[0].description;
+	                   var temp = this.main.temp - 273.15;
+	                   var pressure = this.main.pressure;
+	                   var humidity = this.main.humidity;
+	                   var clouds = this.clouds.all;
+	                   	
+	                   $("<p>").css({
+	                      border:"solid 2px pink",
+	                      margin: "5px"
+	                   }).html("날씨 : " + weather + " /하늘 : " + sky +  " / 온도 : " + temp + " / 압력 : " + pressure + " / 습도 : " + humidity + " / 구름 : " + clouds  ).appendTo($("#weather"));
+	                });
+	             },
+	             error: function(xhr, textStatus, errMsg){
+	                $("#weather").html("<p>" + textStatus + "(HTTP-" + xhr.status + " / " + errMsg + ") </p>");
+	             }
+	          })
+	       }
       </script>
-      		
+      
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar" data-iconpos="top">
 				<ul>
