@@ -41,7 +41,38 @@
 		
    <div role="main"  class="whiteboard">
          
+         <button id = "getIt" >Get JSON</button>   
+         <div id="weather"></div>
       </div>
+      
+      <script type="text/javascript">
+	      var init = function(){
+	         $("#getIt").click(function(){
+	            $.ajax({
+	               url:"http://fineinsight.kr/Lime/index.jsp",
+	               type: "get",
+	               dataType:"json",
+	               success:function(data){
+	                  $(data).each(function(){
+	                    var id = this.List[0].id;
+	                    var pass = this.List[0].tel;
+	                    
+	                     $("<p>").css({
+	                        border:"solid 2px pink",
+	                        margin: "5px"
+	                     }) 
+	                     $("#weather").html(id + "/" + pass);
+	                  });
+	               },
+	               error: function(xhr, textStatus, errMsg){
+	                  $("#weather").html("<p>" + textStatus + "(HTTP-" + xhr.status + " / " + errMsg + ") </p>");
+	               }
+	            });
+	         });
+	      }
+	      
+	      $(document).ready(init);
+      </script>
 
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar" data-iconpos="top">
