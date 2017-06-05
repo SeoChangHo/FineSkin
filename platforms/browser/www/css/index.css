@@ -122,7 +122,8 @@ h1 {
 }
 
 #search{
-	margin-left: 60%;
+	float: right;
+	margin-right: 5%;
 }
 
 #owl-demo .item{

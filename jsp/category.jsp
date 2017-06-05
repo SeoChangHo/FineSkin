@@ -25,51 +25,47 @@
   pstmt=con.prepareStatement(query);
   rs=pstmt.executeQuery();
   
-  String articleseq= "";
-  String category = "";
-  String title= "";
-  String minititle= "";
-  String remark= "";
-  String imgsrc1= "";
-  String imgsrc2= "";
-  String imgsrc3= "";
-  String createdate= "";
-  String visible= "";
+  int count = 0;
   
-  while(rs.next()){
-   articleseq =rs.getString("articleseq");
-   category =rs.getString("category");
-   title =rs.getString("title");
-   minititle =rs.getString("minititle");
-   remark =rs.getString("remark");
-   imgsrc1 =rs.getString("imgsrc1");
-   imgsrc2 =rs.getString("imgsrc2");
-   imgsrc3 =rs.getString("imgsrc3");
-   createdate =rs.getString("createdate");
-   visible = rs.getString("visible");
-   
- }
-  
+  JSONObject jObject = new JSONObject();
   JSONArray ja = new JSONArray();
+  
   JSONObject jo = new JSONObject();
   
-  jo.put("articleseq", articleseq);
-  jo.put("category", category);
-  jo.put("title", title);
-  jo.put("minititle", minititle);
-  jo.put("minititle", minititle);
-  jo.put("imgsrc1", imgsrc1);
-  jo.put("imgsrc3", imgsrc3);
-  jo.put("imgsrc3", imgsrc3);
-  jo.put("createdate", createdate);
-  jo.put("visible", visible);
+  while(rs.next()){
+   String articleseq =rs.getString("articleseq");
+   String category =rs.getString("category");
+   String title =rs.getString("title");
+   String minititle =rs.getString("minititle");
+   String remark =rs.getString("remark");
+   String imgsrc1 =rs.getString("imgsrc1");
+   String imgsrc2 =rs.getString("imgsrc2");
+   String imgsrc3 =rs.getString("imgsrc3");
+   String createdate =rs.getString("createdate");
+   String visible = rs.getString("visible");
+ 
+   jo.put("articleseq", articleseq);
+   jo.put("category", category);
+   jo.put("title", title);
+   jo.put("minititle", minititle);
+   jo.put("minititle", minititle);
+   jo.put("imgsrc1", imgsrc1);
+   jo.put("imgsrc3", imgsrc3);
+   jo.put("imgsrc3", imgsrc3);
+   jo.put("createdate", createdate);
+   jo.put("visible", visible);
+   
+   ja.add(count, jo);
+   
+   jo = new JSONObject();
+   
+   count++;
+ }
   
-  ja.add(jo);
-  
-  ja.toJSONString();
+  jObject.put("List", ja);
+  out.println(jObject.toJSONString());
 %>
 <%
-  
  } catch(Exception e) {
   e.printStackTrace();
   out.println("Fail");
