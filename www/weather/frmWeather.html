@@ -12,10 +12,15 @@
 
 	
     <title>피부날씨</title>
+    <!-- owl.carousel -->
+     <link rel="stylesheet" href="../css/owl.carousel.css">
+     <link rel="stylesheet" href="../css/owl.theme.css">
+	<script src="../js/owl.carousel.js"></script>
+	<script src="../js/index.js"></script>
 
 </head>
 <body>
-<div data-role="page">
+<div data-role="page" id="weatherpage">
 		<div data-role="panel" id="pnlMenu" data-display="overlay">
    			<img src="../img/FineInsightLogo2.jpg" width="100%">
    			<br/>
@@ -40,20 +45,19 @@
 		</div>
 		
   	 <div role="main"  class="whiteboard">
-         
-        <div class="panel panel-default">
-		<div class="panel-heading">
-		<h3 class="panel-title">
-		[카카오링크 v2] 링크 버튼 (디폴트, 피드형)
-		</h3>
-		</div>
-		<div class="panel-body">
-		<h4>카카오톡 앱이 설치되어 있는 모바일 기기라면 아래의 링크가 동작합니다.</h4>
-		<a id="kakao-link-btn" href="javascript:;">
-		<img src="http://dev.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"/>
-		</a>
-		</div>
-		</div>
+           
+           <div id="owl-demo" class="owl-carousel owl-theme">
+           <div class="item">
+                 <button  onclick="weather()">Get JSON</button>
+                 
+                 <div id="weather"></div>
+           </div>
+           <div class="item"><img src="../img/FineInsightLogo2.jpg" alt="Owl Image"></div>
+           <div class="item"><img src="../img/bang.jpg" alt="Owl Image"></div>
+           <div class="item">
+           </div>
+           
+         	</div> 
       </div>
       
       

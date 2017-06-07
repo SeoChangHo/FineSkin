@@ -1,14 +1,19 @@
-window.onload = function(){ 
+$(document).ready(function(){
+	
+	$("[data-role=page]").on("pageshow", function(event){
 		
-    $("#owl-demo").owlCarousel({
-		 
-	      autoPlay: 100000, //Set AutoPlay to 3 seconds
-	 
-	      items : 1,
-	      itemsDesktop : [1199,3],
-	      itemsDesktopSmall : [979,3]
- 	});
-}
+		if(this.id == "weatherpage"){
+				
+		    $("#owl-demo").owlCarousel({
+			      autoPlay: 100000, //Set AutoPlay to 3 seconds
+			      items : 1,
+			      itemsDesktop : [1199,3],
+			      itemsDesktopSmall : [979,3]
+			});
+		}
+	});
+	
+});
 
 var lat = 37.5272032 ;
 var lon = 127.154105; 	

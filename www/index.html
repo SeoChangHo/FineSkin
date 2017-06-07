@@ -13,6 +13,7 @@
 	      
     <title>파인스킨</title>
     
+    <script src="js/index.js"></script>
 </head>
 <body>
 <div data-role="page">
@@ -23,7 +24,7 @@
    			<hr/>
    			
    			<ul data-inset="true" data-role="listview" id="pnlList" >
-   				<li><a href="index.html">오늘의 피부 날씨</a></li>
+   				<li><a href="weather/frmWeather.html">오늘의 피부 날씨</a></li>
    				<li><a href="category/frmCategory.html">피부 정보</a></li>
    				<li><a href="favorite/frmSkinFavorite.html">즐겨찾기</a></li>
    				<li><a href="http://blog.naver.com/qkrina/221007715663">블로그</a></li>
@@ -41,26 +42,14 @@
 		</div>
 	
 		
-   <div role="main"  class="whiteboard">
-         
-         <div id="owl-demo" class="owl-carousel owl-theme">
-           <div class="item">
-                 <button  onclick="weather()">Get JSON</button>
-                 
-                 <div id="weather"></div>
-           </div>
-           <div class="item"><img src="img/FineInsightLogo2.jpg" alt="Owl Image"></div>
-           <div class="item"><img src="img/bang.jpg" alt="Owl Image"></div>
-           <div class="item">
-           </div>
-           
-         </div>
+  	 <div role="main"  class="whiteboard">
+
       </div>
       
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar" data-iconpos="top">
 				<ul>
-					<li><a id="weather" href="#" >피부날씨</a></li>  <!--  class="ui-btn-active" -->
+					<li><a id="weather" href="weather/frmWeather.html" >피부날씨</a></li>  <!--  class="ui-btn-active" -->
 					<li><a href="category/frmCategory.html" >피부정보</a></li>
 					<li><a href="favorite/frmSkinFavorite.html" >즐겨찾기</a></li>
 				</ul>
@@ -68,9 +57,4 @@
 		</div>
 </div>
 </body>
-	<!-- owl.carousel -->
-     <link rel="stylesheet" href="css/owl.carousel.css">
-     <link rel="stylesheet" href="css/owl.theme.css">
-	<script src="js/owl.carousel.js"></script>
-	<script src="js/index.js"></script>
 </html>
