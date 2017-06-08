@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+   <meta charset="UTF-8">
+   <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+   <script src="http://code.jquery.com/jquery.min.js"></script>
+   <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+   <link rel="stylesheet" href="../css/index.css"/>
+   
+   
+<title>Insert title here</title>
+</head>
+<body>
+
+	<div data-role="page">
+		<div data-role="header" class="ui-alt-icon ui-nodisc-icon" id="frmHeader">
+			<div>
+				<a id="topmenu" data-rel = "back" class="ui-btn ui-icon-arrow-l ui-shadow ui-corner-all ui-btn-icon-notext ui-btn-inline"></a>
+			</div>
+		</div>
+	
+		
+		<div role="main"  class="whiteboard" id="articledetail">
+			<div id="articleLoad">
+				
+			</div>
+		</div>
+
+		
+		<div data-role="footer" data-position="fixed">
+
+		</div>
+	</div>
+	
+	<script type='text/javascript'>
+	var articledetail = function ()
+	{
+		var temp  = location.href.split("?");
+		var data = temp[1].split("=");
+		var seq = data[1];
+		
+		 $.ajax({
+	            url:"http://fineinsight.kr/Lime/article.jsp?seq="+seq,
+	            type: "get",
+	            jsonpCallback: "callback",
+	            dataType:"jsonp",
+	            success:function(data){
+	               $(data).each(function(){               
+	                  var articleList = this.List;     
+	                  
+	                  var articledetail = document.getElementById("articledetail");
+	                  
+					articledetail.innerHTML = articleList[0].remark;
+	                  
+
+	                  });
+	               
+	            },
+	            error: function(xhr, textStatus, errMsg){
+	               console.log("xhr: "+xhr+"         status:"+textStatus+"          errorMsg: "+errMsg);
+	            }
+	         })
+	}
+	
+	$(document).on("pagebeforeshow", articledetail);
+	</script>
+
+<br/>
+<br/>
+<br/>
+</body>
+</html>

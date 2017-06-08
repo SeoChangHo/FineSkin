@@ -42,25 +42,23 @@
       <div role="main" class="ui-content">
          <ul id="category" data-role="listview" data-inset="true">
             <li id="all">
-               <a href ="../info/frmSkininfo.html" data-transition="slide">
+               <a href ="#">
                   <h3>전체보기</h3>
                </a>
             </li>
             
             <li id="categorytest">
-               <a href ="../info/frmSkininfo.html" data-transition="slide">
+               <a href ="#">
                   <h3>피부에 안좋은 음식들</h3>
                </a>
             </li>
             
             <li id="habit">
-               <a href ="../info/frmSkininfo.html" data-transition="slide">
+               <a href ="#">
                   <h3>피부를 건조하게 만드는 습관들</h3>
                </a>
-            </li>
-         
-         </ul>
-        
+            </li>   
+         </ul> 
       </div>
       
 
@@ -78,36 +76,23 @@
       </div>
    </div>
    
-	   <script type='text/javascript'>
-	   
-	   var getArticle = function(){
-	      
-	      console.log("event start");
-	      
-	        $.ajax({
-	           url:"http://fineinsight.kr/Lime/category.jsp",
-	           type: "get",
-	           dataType:"json",
-	           success:function(data){
-	              $(data).each(function(){
-	                 var articleseq = this.List[0].articleseq;
-	                 
-	                 console.log(articleseq);   
-	                 });
-	           },
-	           error: function(xhr, textStatus, errMsg){
-	              console.log("xhr: "+xhr+"         status:"+textStatus+"          errorMsg: "+errMsg);
-	           }
-	        })
-	     }
-	   
-	   
-	   var CategorySelect = function()
-	   {
-	      $("#category").children().click(getArticle);
-	   }
-	   
-	   $(document).ready(CategorySelect)
-	   </script>
+      <script type='text/javascript'>
+      
+      var getArticle = function(){
+               
+         var SelectType=this.id;
+
+           $.mobile.changePage("../info/frmSkininfo.html?SelectType="+SelectType, {transition:"slide"});
+        }
+      
+      
+      var CategorySelect = function()
+      {
+         console.log("ㅠㅠ");
+         $("#category").children().click(getArticle);
+      }
+      
+      $(document).ready(CategorySelect)
+      </script>
 </body>
 </html>

@@ -9,6 +9,7 @@
 	<script src="http://code.jquery.com/jquery.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 	<link rel="stylesheet" href="../css/index.css"/>
+	
 
 	
 
@@ -32,30 +33,14 @@
 	
 		
 		<div role="main" class="ui-content">
-			<ul data-role="listview" data-inset="true">
-				<li>
+			<ul data-role="listview" data-inset="true" id="articleView">
+				<!-- <li>
 					<a href ="../sample/sample1.html" data-transition="slideup">
 						<img src="http://imgnews.naver.net/image/thumb80/5191/2017/05/18/244716.jpg"/>
 						<h3>완벽한 피부 관리? 집에서도 거뜬히!</h3>
 						<p>집에서 손쉽게 관리하는 피부관리 Tip 3가지</p>
 					</a>
-				</li>
-				
-				<li>
-					<a href ="../sample/sample2.html" data-transition="slideup">
-						<img src="http://imgnews.naver.net/image/thumb80/5320/2017/05/18/5103.jpg" height="100%"/>
-						<h3>피부 가려움증 근본부터 해결해야</h3>
-						<p>피부가려움증 유산균의 역할은?</p>
-					</a>
-				</li>
-				
-				<li>
-					<a href ="../sample/sample3.html" data-transition="slideup">
-						<img src="http://imgnews.naver.net/image/thumb80/5403/2017/05/18/12434.jpg"/>
-						<h3>피부 건선에 해로운 음식은?</h3>
-						<p>좋은음식을 찾기보다 해로운 음식을 가리자!</p>
-					</a>
-				</li>
+				</li>-->
 			
 			</ul>
         
@@ -74,6 +59,72 @@
 			</div>
 		</div>
 	</div>
+	
+	<script type='text/javascript'>
+	function ArticleListClick()
+	{
+		$("#articleView").children().click(function()
+				{
+					var SelectSeq=this.id;
+					
+					console.log(SelectSeq);
+		
+			        $.mobile.changePage("../article/frmarticle.html?SelectSeq="+SelectSeq, {transition:"slideup"});
+				});
+	}
+	
+	function getArticleList()
+	{
+		var temp  = location.href.split("?");
+		var data = temp[1].split("=");
+		var categorytype = data[1];
+		
+		console.log(categorytype);
+		 
+        
+        $.ajax({
+            url:"http://fineinsight.kr/Lime/category.jsp?categorytype="+categorytype,
+            type: "get",
+            jsonpCallback: "callback",
+            dataType:"jsonp",
+            success:function(data){
+               $(data).each(function(){               
+                  var articleList = this.List;     
+                  
+                  var articleView = document.getElementById("articleView");
+                  var articleChild = "";
+                  
+                 for(var i=0; i<articleList.length; i++)
+              	   {
+              	   		console.log(articleList[i].title);
+              	   		
+              	   		
+              	   		articleChild +=
+		              	   	"<li id="+articleList[i].articleseq+">"
+		              	   		+"<a href ='#' >"
+		              	   			+"<img src="+articleList[i].imgsrc1+" height='100%'/>"
+		              	  			+"<h3>"+articleList[i].title+"</h3>"
+		              				+"<p>"+articleList[i].minititle+"</p>"
+		              			+"</a>"
+		              	+"</li>"
+              	   		
+              	   }
+                 
+                 articleView.innerHTML = articleChild;
+                 
+                 $("#articleView").listview("refresh");
+                 ArticleListClick();
+                  });
+               
+            },
+            error: function(xhr, textStatus, errMsg){
+               console.log("xhr: "+xhr+"         status:"+textStatus+"          errorMsg: "+errMsg);
+            }
+         })
+	}
+	
+	$(document).on("pagebeforeshow", getArticleList());
+	</script>
 	
 </body>
 
