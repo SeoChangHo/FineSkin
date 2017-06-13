@@ -2,7 +2,7 @@
     pageEncoding="UTF-8" import="org.json.simple.*" %>
 <%@ page import="java.sql.*" %>
 <% request.setCharacterEncoding("UTF-8"); 
-    String categorytype = request.getParameter("category");
+    String categorytype = request.getParameter("categorytype");
    	//consloe.log("jsp category : " + catagory);
 %>
  <%
@@ -21,10 +21,12 @@
   con = DriverManager.getConnection(jdbcUrl, DB_USERNAME, DB_PASSWORD);
   %>
   <%
-  String query = "select * from fine_article where category='" + category +"'";
+  
+  
+  String query = "select * from fine_article where category='"+categorytype+"'";
   pstmt=con.prepareStatement(query);
   rs=pstmt.executeQuery();
-    
+  
   int count = 0;
   
   JSONObject jObject = new JSONObject();
@@ -63,9 +65,8 @@
 		   count++;
 	   
 	 }
-	  
 	  jObject.put("List", ja);
-	  out.println(jObject.toJSONString());
+	  out.println("callback("+ jObject.toJSONString() +")");
  
 %>
 <%

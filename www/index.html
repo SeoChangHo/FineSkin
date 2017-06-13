@@ -23,7 +23,8 @@
 		<div data-role="panel" id="pnlMenu" data-display="overlay">
    			<img src="./img/FineInsightLogo2.jpg" width="100%">
    			<br/>
-   			<a href="login/loginmain.html" data-role="button">로그인</a>
+   			<button id= "goLogin">로그인</button>
+   			<button id= "btnLogout">로그아웃</button>
    			<hr/>
    			
    			<ul data-inset="true" data-role="listview" id="pnlList" >
@@ -59,5 +60,57 @@
 			</div>
 		</div>
 </div>
+
+        	<script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+        	<script src = "https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+        	<!-- <script src="../js/FirebaseLogin.js"></script>-->
+        	<script type="text/javascript">
+        $(document).ready(firebaseLoad());
+        	
+        	function firebaseLoad()
+        	{
+        	
+        	const config = 
+		 {
+			    apiKey: "AIzaSyA2B3NFo2gk-qZtYtr23fvm6i3MqLdTYFU",
+			    authDomain: "finepush-170101.firebaseapp.com",
+			    databaseURL: "https://finepush-170101.firebaseio.com",
+			    projectId: "finepush-170101",
+			    storageBucket: "finepush-170101.appspot.com",
+			    messagingSenderId: "972245623174"
+			  };
+			  firebase.initializeApp(config);
+        	}
+			  
+			  firebase.auth().onAuthStateChanged(firebaseUser => 
+			  {
+				  if(firebaseUser)
+					  {
+					  	console.log(firebaseUser);
+					  	$("#goLogin").hide();
+					  	$("#btnLogout").show();
+					  }
+				  else
+					  {
+					  	console.log("not logged in");
+					  	$("#goLogin").show();
+					  	$("#btnLogout").hide();
+					  }
+			  })
+			  const goLogin = document.getElementById("goLogin");
+			  const btnLogout = document.getElementById("btnLogout");
+			  
+			  goLogin.addEventListener("click", e =>
+			  {
+				  location.href = "login/loginmain.html"
+			  })
+			  
+			  
+			  //Logout
+			  btnLogout.addEventListener("click", e=>
+			  {
+				  firebase.auth().signOut();
+			  })
+		</script>
 </body>
 </html>
