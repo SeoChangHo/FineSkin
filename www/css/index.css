@@ -137,7 +137,7 @@ h1 {
 
 #frmHeader
 {
-	background-color:pink;
+	height: 50px;
 }
 
 .box {
@@ -149,3 +149,59 @@ h1 {
     background: #ffc0cb;
     background: rgba(255,192,203,0.4);
 }
+
+#sectionlist
+{
+	maring: 2px;	
+}
+
+.listsection
+{
+	padding: 20px 20px 0px 20px;
+	width:90%;
+	overflow: hidden;
+	height: auto;
+}
+
+.wlist
+{
+	display: inline-block;
+	width: 50%;
+	float: left;
+	padding: 5px 0px;
+	
+}
+
+.wlist_img
+{
+	height: 40px;
+	float: left;
+	width: 33%;
+}
+
+.wlist_img>img
+{
+	height:100%;
+}
+
+.wlist_txt
+{
+	float: left;
+	width: 66%;
+	vertical-align: middle;
+	height:40px;
+	line-height: 40px;
+}
+
+
+
+.wlist>img
+{
+	height: 100%;
+}
+
+.wlist>a
+{
+	margin-left: 70%;
+}
+
