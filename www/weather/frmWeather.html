@@ -13,7 +13,7 @@
     <title>피부날씨</title>
 
 </head>
-<body>
+<body onload="loadPost();">
 <div data-role="page" id="SubPage" >
 		<div data-role="panel" id="pnlMenu" data-display="overlay">
    			<img src="../img/FineInsightLogo2.jpg" width="100%">
@@ -40,24 +40,15 @@
 		
   	 <div role="main"  class="whiteboard">
            
-           <div id="owl-demo" class="owl-carousel owl-theme">
-	           <div class="item">
-	           
-	                 <div id="weather"></div>
-	                 
-	           </div>
-	           <div class="item"><img src="../img/FineInsightLogo2.jpg" alt="Owl Image"></div>
-	           <div class="item"></div>
-	           <div class="item"></div>
-           
-         	</div> 
-         	
+           <div id="location"></div>
+           <div id="weather"></div>
+           <div id="juso"></div>
+           <div id="mise"></div>
+           <div id="uv"></div>
       </div>
       
-       <!-- owl.carousel -->
-      <link rel="stylesheet" href="../css/owl.carousel.css">
-      <link rel="stylesheet" href="../css/owl.theme.css">
-	  <script src="../js/owl.carousel.js"></script>
+     
+      <script type="text/javascript" src="http://maps.google.com/maps/api/js?libraries=places&key=AIzaSyBsgH9UcUk5-Yu0zoo6nGQNKuLyTzYxC9w"></script>
 	  <script src="../js/index.js"></script>
       
 		<div data-role="footer" data-position="fixed">
