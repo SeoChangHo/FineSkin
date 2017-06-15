@@ -155,6 +155,13 @@ h1 {
 	maring: 2px;	
 }
 
+.location
+{
+	text-align: center;
+	color: gray;
+	font-size: 4vw;
+}
+
 .listsection
 {
 	padding: 20px 20px 0px 20px;
@@ -176,7 +183,7 @@ h1 {
 {
 	height: 40px;
 	float: left;
-	width: 33%;
+	width: 26%;
 }
 
 .wlist_img>img
@@ -184,16 +191,15 @@ h1 {
 	height:100%;
 }
 
-.wlist_txt
+.wlist_txt1, .wlist_txt2, .wlist_txt3, .wlist_txt4, .wlist_txt5
 {
 	float: left;
-	width: 66%;
+	width: 74%;
 	vertical-align: middle;
 	height:40px;
 	line-height: 40px;
+	font-size: 4vw;
 }
-
-
 
 .wlist>img
 {
