@@ -53,6 +53,8 @@ function successCallback(position) {
 	            		  $(".wlist_txt1").html("날씨 : 흐림");
 	            	  }else if(weather=="Rain"){
 	            		  $(".wlist_txt1").html("날씨 : 비");
+	            	  }else if(weather=="Fog"){
+	            		  $(".wlist_txt1").html("날씨 : 안개");
 	            	  }else{
 	            		  $(".wlist_txt1").html("날씨 : ?");
 	            	  }
