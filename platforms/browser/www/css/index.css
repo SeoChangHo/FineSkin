@@ -117,6 +117,12 @@ h1 {
 }
 */
 
+@font-face{
+	font-family:"나눔고딕";
+	src:url("./font/나눔고딕.ttf");
+	format("truetype");
+}
+
 #topmenu{
 	margin-left: 5%;	
 }
@@ -170,6 +176,14 @@ h1 {
 	height: auto;
 }
 
+.listsection2
+{
+	padding: 0px 20px 0px 20px;
+	width:90%;
+	overflow: hidden;
+	height: auto;
+}
+
 .wlist
 {
 	display: inline-block;
@@ -211,3 +225,13 @@ h1 {
 	margin-left: 70%;
 }
 
+.messagetext
+{
+	padding: 0px 20px 0px 20px;
+}
+.messagetext>p
+{
+	border:2px solid lightgray; 
+	padding: 10px;
+	maring-top:5px;
+}

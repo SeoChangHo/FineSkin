@@ -1,5 +1,12 @@
 $(document).ready(function(){
 
+	$("#owl-demo").owlCarousel({
+	      autoPlay: 100000, //Set AutoPlay to 3 seconds
+	      items : 1,
+	      itemsDesktop : [1199,3],
+	      itemsDesktopSmall : [979,3]
+	});
+	
 	if(! window.location.hash){
 		window.location = window.location + '#weather';
 		window.location.reload();
@@ -103,6 +110,7 @@ function successCallback(position) {
 	        		  $(".wlist_txt5").html("미세먼지: 좋음");  
 	        	  }else if(mise==2){
 	        		  $(".wlist_txt5").html("미세먼지: 보통");
+	        		  $("<p>").html("미세먼지보통").appendTo(".messagetext");
 	        	  }else if(mise==3){
 	        		  $(".wlist_txt5").html("미세먼지: 나쁨");
 	        	  }else if(mise==4){
@@ -125,14 +133,19 @@ function successCallback(position) {
 
 	        	if(uv<=2){
 	        		$(".wlist_txt4").html("자외선: 낮음");
+	        		$("<p>").html("자외선낮음").appendTo(".messagetext");
 	        	}else if(uv<=5){
 	        		$(".wlist_txt4").html("자외선: 보통");
+	        		$("<p>").html("자외선보통").appendTo(".messagetext");
 	        	}else if(uv<=7){
 	        		$(".wlist_txt4").html("자외선: 높음");
+	        		$("<p>").html("자외선높음").appendTo(".messagetext");
 	        	}else if(uv<=10){
 	        		$(".wlist_txt4").html("자외선:매우높음");
+	        		$("<p>").html("자외선매우높음").appendTo(".messagetext");
 	        	}else{
 	        		$(".wlist_txt4").html("자외선: 위험");
+	        		$("<p>").html("자외선위험").appendTo(".messagetext");
 	        	}
 
 	           });

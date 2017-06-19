@@ -5,12 +5,12 @@
 	<meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
-    <script src="http://code.jquery.com/jquery.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <link rel="stylesheet" href="../css/index.css"/>
 
-    <title>피부날씨</title>
+    <title>피부날씨</title>    
 
 </head>
 <body onload="loadPost();">
@@ -25,7 +25,7 @@
    				<li><a href="../weather/frmWeather.html">오늘의 피부 날씨</a></li>
    				<li><a href="../category/frmCategory.html">피부 정보</a></li>
    				<li><a href="../favorite/frmSkinFavorite.html">즐겨찾기</a></li>
-   				<li><a href="http://blog.naver.com/qkrina/221007715663">블로그</a></li>
+   				<li><a href="https://blog.naver.com/qkrina/221007715663">블로그</a></li>
    				<li><a href="https://play.google.com/store/apps/details?id=com.google.android.googlequicksearchbox">앱 평가하기</a></li>
    			</ul>
    		</div>
@@ -38,43 +38,57 @@
 			</div>
 		</div>
       
-      <section>
-			<div class="listsection">
-			<div class="location"></div>
-			<img src="../img/main.png" id="firstimg" style="width: 100%"></div>
-			<div class="listsection">
-				<div class="wlist">
-					<div class="wlist_img"><img src="../img/icon.png" ></div>
-					<div class="wlist_txt1"></div>
-				</div>
-				<div class="wlist">
-					<div class="wlist_img"><img src="../img/icon.png" ></div>
-					<div class="wlist_txt2"></div>
-				</div>
-				<div class="wlist">
-					<div class="wlist_img"><img src="../img/icon.png" ></div>
-					<div class="wlist_txt3"></div>
-				</div>
-				<div class="wlist">
-					<div class="wlist_img"><img src="../img/icon.png" ></div>
-					<div class="wlist_txt4"></div>
-				</div>
-				<div class="wlist">
-					<div class="wlist_img"><img src="../img/icon.png" ></div>
-					<div class="wlist_txt5"></div>
-				</div>
-				<div class="wlist">
-					<a href="#transparent" data-rel="popup" class="ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-icon-info ui-btn-icon-notext" data-position-to="#firstimg" >팝업</a>
-					<div id="transparent" data-role="popup" data-theme="none" data-shadow="false">
-						<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>
-						<img src="../img/cat.gif" class="popphoto" height="100%" width="100%" >
+      <div id="owl-demo" class="owl-carousel owl-theme">
+	          
+           <div class="item">
+                 <section>
+					<div class="listsection">
+					<div class="location"></div>
+					<img src="../img/main.png" id="firstimg" style="width: 100%"></div>
+					<div class="listsection2">
+						<div class="wlist">
+							<div class="wlist_img"><img src="../img/icon.png" ></div>
+							<div class="wlist_txt1"></div>
+						</div>
+						<div class="wlist">
+							<div class="wlist_img"><img src="../img/icon.png" ></div>
+							<div class="wlist_txt2"></div>
+						</div>
+						<div class="wlist">
+							<div class="wlist_img"><img src="../img/icon.png" ></div>
+							<div class="wlist_txt3"></div>
+						</div>
+						<div class="wlist">
+							<div class="wlist_img"><img src="../img/icon.png" ></div>
+							<div class="wlist_txt4"></div>
+						</div>
+						<div class="wlist">
+							<div class="wlist_img"><img src="../img/icon.png" ></div>
+							<div class="wlist_txt5"></div>
+						</div>
+						<div class="wlist">
+							<a href="#transparent" data-rel="popup" class="ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-icon-info ui-btn-icon-notext" data-position-to="#firstimg" >팝업</a>
+							<div id="transparent" data-role="popup" data-theme="none" data-shadow="false">
+								<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>
+								<img src="../img/cat.gif" class="popphoto" height="100%" width="100%" >
+							</div>
+						</div>
 					</div>
-				</div>
-			</div>
-		</section>
+				</section>
+           </div>
+           <div class="item">
+           		<div class="messagetext"></div>
+           </div>
+           
+      </div> 
       
-     
-      <script type="text/javascript" src="http://maps.google.com/maps/api/js?libraries=places&key=AIzaSyBsgH9UcUk5-Yu0zoo6nGQNKuLyTzYxC9w"></script> 
+      
+      <!-- owl.carousel -->
+      <link rel="stylesheet" href="../css/owl.carousel.css">
+      <link rel="stylesheet" href="../css/owl.theme.css">
+      <script src="../js/owl.carousel.js"></script>
+      
+      <script type="text/javascript" src="https://maps.google.com/maps/api/js?libraries=places&key=AIzaSyBsgH9UcUk5-Yu0zoo6nGQNKuLyTzYxC9w"></script> 
 	  <script src="../js/index.js"></script>
       
 		<div data-role="footer" data-position="fixed" >
