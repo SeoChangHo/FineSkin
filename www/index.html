@@ -31,7 +31,7 @@
    				<li><a href="#" >오늘의 피부 날씨</a></li>
    				<li><a href="category/frmCategory.html">피부 정보</a></li>
    				<li><a href="favorite/frmSkinFavorite.html">즐겨찾기</a></li>
-   				<li><a href="https://blog.naver.com/qkrina/221007715663">블로그</a></li>
+   				<li><a href="http://blog.naver.com/qkrina/221007715663">블로그</a></li>
    				<li><a href="https://play.google.com/store/apps/details?id=com.google.android.googlequicksearchbox">앱 평가하기</a></li>
    			</ul>
    		</div>
@@ -56,27 +56,46 @@
 		</div>
 </div>
 
-        	<script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
-        	<script src = "https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+
+ 	    <script src = "https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+       
         	<!-- <script src="../js/FirebaseLogin.js"></script>-->
         	<script type="text/javascript">
-        $(document).ready(firebaseLoad());
-        	
-        	function firebaseLoad()
-        	{
         	
         	const config = 
 		 {
-			    apiKey: "AIzaSyA2B3NFo2gk-qZtYtr23fvm6i3MqLdTYFU",
-			    authDomain: "finepush-170101.firebaseapp.com",
-			    databaseURL: "https://finepush-170101.firebaseio.com",
-			    projectId: "finepush-170101",
-			    storageBucket: "finepush-170101.appspot.com",
-			    messagingSenderId: "972245623174"
+        		    apiKey: "AIzaSyBE5vMFfd91z_MXwb1CeBKsZWQEYPisY9s",
+        		    authDomain: "thisskin-ios-fe4b6.firebaseapp.com",
+        		    databaseURL: "https://thisskin-ios-fe4b6.firebaseio.com",
+        		    projectId: "thisskin-ios-fe4b6",
+        		    storageBucket: "thisskin-ios-fe4b6.appspot.com",
+        		    messagingSenderId: "253616346483"
 			  };
 			  firebase.initializeApp(config);
-        	}
+        	
+			  const messaging = firebase.messaging();
+	            messaging.requestPermission()
+	            .then(function()
+	            		{
+	            			console.log('Have Permission');
+	            			return messaging.getToken();
+	            		}) 
+	            	.then(function(token)
+	            		{
+	            			console.log(token);
+	            		})
+	            	.catch(function(err)
+	            		{
+	            				console.log('Err Occured');
+	            		})
+	            messaging.onMessage(function(playload)
+	            		{
+	            			colole.log("onMessage: " , playload);
+	            		})
 			  
+	            
+	          //Firebase Login or Logout Status
 			  firebase.auth().onAuthStateChanged(firebaseUser => 
 			  {
 				  if(firebaseUser)
@@ -95,13 +114,15 @@
 			  const goLogin = document.getElementById("goLogin");
 			  const btnLogout = document.getElementById("btnLogout");
 			  
+			  
+			  //Login Click
 			  goLogin.addEventListener("click", e =>
 			  {
 				  location.href = "login/loginmain.html"
 			  })
 			  
 			  
-			  //Logout
+			  //Logout Click
 			  btnLogout.addEventListener("click", e=>
 			  {
 				  firebase.auth().signOut();
