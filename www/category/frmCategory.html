@@ -11,6 +11,7 @@
    <link rel="stylesheet" href="../css/index.css"/>
    
    <title>Insert title here</title>
+   
 </head>
 
 <body>
@@ -42,9 +43,12 @@
       <div role="main" class="ui-content">
          <ul id="category" data-role="listview" data-inset="true">
             <li id="all">
+            	   
                <a href ="#">
-                  <h3>전체보기</h3>
+                  <div id="object">
+                  </div>
                </a>
+               
             </li>
             
             <li id="categorytest">
@@ -61,7 +65,9 @@
          </ul> 
       </div>
       
-
+       	<script src = "https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+		<script src="../js/Category.js"></script>
            
 
       
@@ -88,7 +94,7 @@
       
       var CategorySelect = function()
       {
-         console.log("ㅠㅠ");
+         
          $("#category").children().click(getArticle);
       }
       
