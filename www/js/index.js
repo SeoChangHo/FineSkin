@@ -35,8 +35,7 @@ $(document).ready(function(){
 	           alert("<p>" + textStatus + "(HTTP-" + xhr.status + " / " + errMsg + ") </p>");
 	        }
 	     })
-	     
-	     window.close();
+
 	});
 	
 	var setGugun = function(){
