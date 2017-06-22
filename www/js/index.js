@@ -20,7 +20,7 @@ $(document).ready(function(){
 			
 		console.log($("#sido").val() + " " +$("#gugun").val());
 		$.ajax({
-	        url:"http://map.vworld.kr/search.do?apiKey=A9F644A3-F64C-3FC9-9531-B935E68FF8AF&q=" + $("#sido").val() + " " +$("#gugun").val() + "&category=Juso&pageUnit=10&pageIndex=1&output=json",
+	        url:"https://map.vworld.kr/search.do?apiKey=A9F644A3-F64C-3FC9-9531-B935E68FF8AF&q=" + $("#sido").val() + " " +$("#gugun").val() + "&category=Juso&pageUnit=10&pageIndex=1&output=json",
 	        type: "get",
 	        dataType:"jsonp",
 	        success:function(data){
@@ -35,6 +35,8 @@ $(document).ready(function(){
 	           alert("<p>" + textStatus + "(HTTP-" + xhr.status + " / " + errMsg + ") </p>");
 	        }
 	     })
+	     
+	     window.close();
 	});
 	
 	var setGugun = function(){
@@ -133,6 +135,7 @@ function successCallback(position) {
 function weatherSystem(latitude, longtitude, gubun){
 	var lat = latitude;
 	var lng = longtitude;
+	$(".messagetext").empty();
     
 	$.ajax({
         url:"https://apis.daum.net/local/geo/coord2addr?apikey=b9ab1680e352b1d4c5fe2b578928060e&longitude=" + lng + "&latitude=" + lat + "&inputCoordSystem=WGS84&output=json",
@@ -148,7 +151,7 @@ function weatherSystem(latitude, longtitude, gubun){
         	  if(gubun == 0){
         		  $(".location").html(gujuso + " " + name3);
         	  }else if(gubun==1){
-        		  $(".location").html(gujuso);
+        		  $(".location").html(sijuso + " " + gujuso);
         	  }
         	  
         	  var gugugu = encodeURIComponent(gujuso);

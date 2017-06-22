@@ -161,11 +161,16 @@ h1 {
 	maring: 2px;	
 }
 
-.location
+.loca
 {
 	text-align: center;
 	color: gray;
+}
+
+.location
+{
 	font-size: 4vw;
+	text-decoration:none;
 }
 
 .listsection
