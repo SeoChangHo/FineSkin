@@ -26,12 +26,12 @@
    			<br/>
    			<button id= "goLogin">로그인</button>
    			<button id= "btnLogout">로그아웃</button>
-   			<hr/>
+   			<hr/>  
    			
    			<ul data-inset="true" data-role="listview" id="pnlList" >
    				<li><a href="#" >오늘의 피부 날씨</a></li>
    				<li><a href="category/frmCategory.html">피부 정보</a></li>
-   				<li><a href="favorite/frmSkinFavorite.html">즐겨찾기</a></li>
+   				<li><a href="favorite/frmSkinFavorite.html">즐겨찾기</a></li>  
    				<li><a href="http://blog.naver.com/qkrina/221007715663">블로그</a></li>
    				<li><a href="https://play.google.com/store/apps/details?id=com.google.android.googlequicksearchbox">앱 평가하기</a></li>
    			</ul>
@@ -87,17 +87,17 @@
 	            	.then(function(token)
 	            		{
 	            			console.log(token);
-	            		})
+	            		}) 
 	            	.catch(function(err)
 	            		{
 	            				console.log('Err Occured');
 	            		})
 	            messaging.onMessage(function(playload)
-	            		{
+	            		{    
 	            			colole.log("onMessage: " , playload);
 	            		})
 			  
-	            
+	               
 	          //Firebase Login or Logout Status
 			  firebase.auth().onAuthStateChanged(firebaseUser => 
 			  {
